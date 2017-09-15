@@ -7,7 +7,5 @@
 
 // 更多花式配置，参考文档： http://webpack.github.io/docs/webpack-dev-server.html#proxy
 module.exports = {
-    "/total": {
-        target: "http://cnpm.51.nb"
-    }
+
 };

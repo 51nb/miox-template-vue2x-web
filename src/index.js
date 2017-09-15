@@ -1,44 +1,25 @@
+/**
+ * Miox install file
+ */
 import 'miox-css';
 import Miox from 'miox';
 import Engine from 'miox-vue2x';
-import Animate from 'miox-animation';
-import Router from 'miox-router';
+import Route from './routes';
 
-import A from './webviews/0.vue';
-import B from './webviews/1.vue';
-import C from './webviews/2.vue';
-import D from './webviews/3.vue';
-import E from './webviews/4.vue';
+// 新建Miox对象
+const app = new Miox();
 
-const router = new Router();
+// 各种事件
+app.on('500', err => console.error(err.stack));
+app.on('404', err => console.warn('404 Not found'));
+app.on('process:start', () => console.log('process:start'));
+app.on('process:end', () => console.log('process:end'));
 
-router.patch('/', async ctx => {
-    await ctx.render(A);
-});
-
-router.patch('/b', async ctx => {
-    if (global.p) {
-        await ctx.render(E);
-    } else {
-        await ctx.render(B);
-    }
-
-});
-
-router.patch('/c', async ctx => {
-    await ctx.render(C);
-});
-
-router.patch('/d', async ctx => {
-    await ctx.render(D);
-});
-
-router.patch('/e', async ctx => {
-    await ctx.render(E);
-});
-
-const app = global.miox = new Miox({ session: true, max: 2, debug: true });
+// 设置引擎
 app.set('engine', Engine);
-app.set('animate', Animate('slide'));
-app.use(router.routes());
+
+// 设置路由
+app.use(Route.routes());
+
+// 启动服务监听
 export default app.listen();
