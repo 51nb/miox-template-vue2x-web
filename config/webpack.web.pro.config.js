@@ -5,7 +5,7 @@ module.exports = webpackConfig(config => {
         env: 'web',
         'source-compile': {
             dirs: [/^src/i],
-            modules: /^miox\-/i
+            modules: [/^miox\-/i, /webpack\-dev\-server/i]
         }
     });
     config.merge({
