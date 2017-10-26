@@ -1,11 +1,11 @@
-const webpackConfig = require('../src/miox-vue2x-webpack-config/src');
+const webpackConfig = require('miox-vue2x-webpack-config');
 
 module.exports = webpackConfig(config => {
     config.set({
         env: 'web',
         'source-compile': {
             dirs: [/^src/i],
-            modules: [/^miox\-/i, /webpack\-dev\-server/i]
+            modules: [/miox\-/i, /webpack\-dev\-server/i]
         }
     });
     config.merge({
