@@ -6,7 +6,7 @@
 </template>
 <style lang="less" src="./index.less"></style>
 <script>
-    import { Component, life } from 'miox-vue2x-classify';
+    import { Component, life } from 'miox-vue2x-component-classify';
     @Component
     export default class HomePage {
         @life mounted() {
