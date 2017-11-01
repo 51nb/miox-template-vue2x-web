@@ -16,7 +16,7 @@ app.on('process:start', () => console.log('process:start'));
 app.on('process:end', () => console.log('process:end'));
 
 // 设置引擎
-app.set('engine', Engine);
+app.install(Engine);
 
 // 设置路由
 app.use(Route.routes());
